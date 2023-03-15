@@ -1,5 +1,5 @@
 $TTL    604800
-@       IN      SOA     okd4-services.okd.local. admin.okd.local. (
+@       IN      SOA     bastion.ocp.300481.de. admin.ocp.300481.de. (
                   1     ; Serial
              604800     ; Refresh
               86400     ; Retry
@@ -8,23 +8,23 @@ $TTL    604800
 )
 
 ; name servers - NS records
-    IN      NS      okd4-services
+    IN      NS      bastion
 
 ; name servers - A records
-okd4-services.okd.local.          IN      A       192.168.60.240
+bastion.ocp.300481.de.                            IN    A    192.168.0.200
 
 ; OpenShift Container Platform Cluster - A records
-okd4-bootstrap.lab.okd.local.        IN      A      192.168.60.242
-okd4-control-plane-1.lab.okd.local.        IN      A      192.168.60.241
+bootstrap.ocp.300481.de.                          IN    A    192.168.0.151
+control-plane-1.ocp.300481.de.                    IN    A    192.168.0.150
 
 ; OpenShift internal cluster IPs - A records
-api.lab.okd.local.    IN    A    192.168.60.240
-api-int.lab.okd.local.    IN    A    192.168.60.240
-*.apps.lab.okd.local.    IN    A    192.168.60.240
-etcd-0.lab.okd.local.    IN    A     192.168.60.241
-console-openshift-console.apps.lab.okd.local.     IN     A     192.168.60.240
-oauth-openshift.apps.lab.okd.local.     IN     A     192.168.60.240
+api.ocp.300481.de.                                IN    A    192.168.0.200
+api-int.ocp.300481.de.                            IN    A    192.168.0.200
+*.apps.ocp.300481.de.                             IN    A    192.168.0.200
+etcd-0.ocp.300481.de.                             IN    A    192.168.0.150
+console-openshift-console.apps.ocp.300481.de.     IN    A    192.168.0.200
+oauth-openshift.apps.ocp.300481.de.               IN    A    192.168.0.200
 
 ; OpenShift internal cluster IPs - SRV records
-_etcd-server-ssl._tcp.lab.okd.local.    86400     IN    SRV     0    10    2380    etcd-0.lab
+_etcd-server-ssl._tcp.ocp.300481.de.    86400     IN    SRV     0    10    2380    etcd-0.lab
 
